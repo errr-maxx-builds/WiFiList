@@ -29,6 +29,8 @@ runs:
       run: |
         TARGET="$ANDROID_SDK_ROOT/platforms"
         SOURCE='https://github.com/Reginer/aosp-android-jar/raw/main'
+        print DEBUG DEBUG DEBUG
+        ls -l "$TARGET"
         curl -Lo "$TARGET/android-33/android.jar" "$SOURCE/android-33/android.jar"
         curl -Lo "$TARGET/android-34/android.jar" "$SOURCE/android-34/android.jar"
       shell: bash
