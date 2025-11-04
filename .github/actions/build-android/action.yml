@@ -29,10 +29,11 @@ runs:
       run: |
         TARGET="$ANDROID_SDK_ROOT/platforms"
         SOURCE='https://github.com/Reginer/aosp-android-jar/raw/main'
-        print DEBUG DEBUG DEBUG
-        ls -l "$TARGET"
-        curl -Lo "$TARGET/android-33/android.jar" "$SOURCE/android-33/android.jar"
-        curl -Lo "$TARGET/android-34/android.jar" "$SOURCE/android-34/android.jar"
+        for i in {28..99}; do
+          if [[ -d "$TARGET/android-$i" ]]; then
+            curl -Lo "$TARGET/android-$i/android.jar" "$SOURCE/android-$i/android.jar"
+          fi
+        done
       shell: bash
 
     - name: Set APP_NAME
